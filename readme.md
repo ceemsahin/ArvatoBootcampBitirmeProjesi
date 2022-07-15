@@ -1,31 +1,31 @@
 ## Genres Endpointi
-### 1-)GetListAllGenre metodunu var olan genreleri z->a şeklinde sıraladım ancak içerisine giremediğim için net bir sonuç alamadım.
-### 2-)Genre işlemlerine kolaylık olsun diye Id'e göre film getirme işlemi gerçekleştirdim.
-### 3-)AddGenre kısmında ise ekleme işlemi yaparken(film bazında) [{'id': 18, 'name': 'Drama'}] veya [{'id': 35, 'name': 'Comedy'}] gibi yazıp denersek sonuç verecektir.
-### 4-)Yine film bazında genre silme ve güncelleme işlemleri yapılabilir.
+### 1-)GetListAllGenre metodunu var olan genreleri z->a ÅŸeklinde sÄ±raladÄ±m ancak iÃ§erisine giremediÄŸim iÃ§in net bir sonuÃ§ alamadÄ±m.
+### 2-)Genre iÅŸlemlerine kolaylÄ±k olsun diye Id'e gÃ¶re film getirme iÅŸlemi gerÃ§ekleÅŸtirdim.
+### 3-)AddGenre kÄ±smÄ±nda ise ekleme iÅŸlemi yaparken(film bazÄ±nda) [{'id': 18, 'name': 'Drama'}] veya [{'id': 35, 'name': 'Comedy'}] gibi yazÄ±p denersek sonuÃ§ verecektir.
+### 4-)Yine film bazÄ±nda genre silme ve gÃ¼ncelleme iÅŸlemleri yapÄ±labilir.
 
-##Movies Endpointi
-### 1-)Burada her action sonuç verecektir.
-### 2-)GetMovieDetailsById kısmında redis ile bir increment++ özelliği bağlıdır.Ayakta olan bir docker container ile çağırıldığında bu özellik çalışıyor olup.Get Id -- örn:get 1 -- ile terminalde çağırıldığında, bir film id'si kaç defa çağırılmış(görüntülenmiş) görebiliriz.
-### 3-)AddMovie kısmı için önce boş olan bir ID değeri bulup(GetMovieById kısmını kullanabilirsiniz) daha sonra ekleme işlemi gerçekleştiriniz.ID alanı tablo'da identity olarak ayarlanmadığı için böyle bir yöntem uyguluyoruz.
-### 4-)GetMovieListGenre kısmında ise  Genre'ye göre movie aramalarını [{'id': 18, 'name': 'Drama'}] veya [{'id': 35, 'name': 'Comedy'}] gibi şekillerde yazıp çektiğinizde sonuç verecektir ve genresi o olan movieler gelecektir.
-### 5-)Bu endpoint ile ilgili gerekli diğer açıklamalar actionların veya metodların yanında comment olarak verilmiştir.
-### 6-)Fazla veri getirmesi beklenen alanlar postman aracılığı ile hızlı bir şekilde çağırılabilir(Eğer değer vermemiz gerekirse.Url kısmının sonuna /değer yazabiliriz).Bazı alanlarda swagger aşırı bekletmektedir.
+## Movies Endpointi
+### 1-)Burada her action sonuÃ§ verecektir.
+### 2-)GetMovieDetailsById kÄ±smÄ±nda redis ile bir increment++ Ã¶zelliÄŸi baÄŸlÄ±dÄ±r.Ayakta olan bir docker container ile Ã§aÄŸÄ±rÄ±ldÄ±ÄŸÄ±nda bu Ã¶zellik Ã§alÄ±ÅŸÄ±yor olup.Get Id -- Ã¶rn:get 1 -- ile terminalde Ã§aÄŸÄ±rÄ±ldÄ±ÄŸÄ±nda, bir film id'si kaÃ§ defa Ã§aÄŸÄ±rÄ±lmÄ±ÅŸ(gÃ¶rÃ¼ntÃ¼lenmiÅŸ) gÃ¶rebiliriz.
+### 3-)AddMovie kÄ±smÄ± iÃ§in Ã¶nce boÅŸ olan bir ID deÄŸeri bulup(GetMovieById kÄ±smÄ±nÄ± kullanabilirsiniz) daha sonra ekleme iÅŸlemi gerÃ§ekleÅŸtiriniz.ID alanÄ± tablo'da identity olarak ayarlanmadÄ±ÄŸÄ± iÃ§in bÃ¶yle bir yÃ¶ntem uyguluyoruz.
+### 4-)GetMovieListGenre kÄ±smÄ±nda ise  Genre'ye gÃ¶re movie aramalarÄ±nÄ± [{'id': 18, 'name': 'Drama'}] veya [{'id': 35, 'name': 'Comedy'}] gibi ÅŸekillerde yazÄ±p Ã§ektiÄŸinizde sonuÃ§ verecektir ve genresi o olan movieler gelecektir.
+### 5-)Bu endpoint ile ilgili gerekli diÄŸer aÃ§Ä±klamalar actionlarÄ±n veya metodlarÄ±n yanÄ±nda comment olarak verilmiÅŸtir.
+### 6-)Fazla veri getirmesi beklenen alanlar postman aracÄ±lÄ±ÄŸÄ± ile hÄ±zlÄ± bir ÅŸekilde Ã§aÄŸÄ±rÄ±labilir(EÄŸer deÄŸer vermemiz gerekirse.Url kÄ±smÄ±nÄ±n sonuna /deÄŸer yazabiliriz).BazÄ± alanlarda swagger aÅŸÄ±rÄ± bekletmektedir.
 
-##Trendings Endpointi
-### 1-)Var olan tek action bize en çok oy alan 20 adet movie döndürür.
+## Trendings Endpointi
+### 1-)Var olan tek action bize en Ã§ok oy alan 20 adet movie dÃ¶ndÃ¼rÃ¼r.
 
-##Not:
-### Proje ayağa kaldırıldıktan sonra test edilebilmesi için  User Endpointinde Authentication işlemi yapılması gerekir.User ile ilgili bir model oluşturulmuştur ve migration işlemi ile Db'de user için bir tablo açılmış olup kullanıcı adı ve şifresi kayıt edilmiştir..(Model'e bakabilirsiniz).
-### Bu işlemden sonra alınacak olan token ile üst tarafta bulunan Authorization alanına,alınan token girilir ve user aktif olur.Aksi takdirde 401 hatası alınır.
-### Custom middleware ile exception handling yazımı mevcuttur. Hata aldığında otomatik olarak çalışacak ama bunun bizim tarafımızdan yakalanmayan hatalar olduğunu bilmeliyiz bu yüzden tyr catch metodları sık kullanılmamıştır. Handle edilmemiş exception'ları yakalayacaktır.Custom middleware ile ilgili detayları BLL alanında ve program.cs kısmında görebilirsiniz.
+## NOT
+### Proje ayaÄŸa kaldÄ±rÄ±ldÄ±ktan sonra test edilebilmesi iÃ§in  User Endpointinde Authentication iÅŸlemi yapÄ±lmasÄ± gerekir.User ile ilgili bir model oluÅŸturulmuÅŸtur ve migration iÅŸlemi ile Db'de user iÃ§in bir tablo aÃ§Ä±lmÄ±ÅŸ olup kullanÄ±cÄ± adÄ± ve ÅŸifresi kayÄ±t edilmiÅŸtir..(Model'e bakabilirsiniz).
+### Bu iÅŸlemden sonra alÄ±nacak olan token ile Ã¼st tarafta bulunan Authorization alanÄ±na,alÄ±nan token girilir ve user aktif olur.Aksi takdirde 401 hatasÄ± alÄ±nÄ±r.
+### Custom middleware ile exception handling yazÄ±mÄ± mevcuttur. Hata aldÄ±ÄŸÄ±nda otomatik olarak Ã§alÄ±ÅŸacak ama bunun bizim tarafÄ±mÄ±zdan yakalanmayan hatalar olduÄŸunu bilmeliyiz bu yÃ¼zden tyr catch metodlarÄ± sÄ±k kullanÄ±lmamÄ±ÅŸtÄ±r. Handle edilmemiÅŸ exception'larÄ± yakalayacaktÄ±r.Custom middleware ile ilgili detaylarÄ± BLL alanÄ±nda ve program.cs kÄ±smÄ±nda gÃ¶rebilirsiniz.
 
-##Kullanılan teknolojiler
-###Net 6
-###Ef Core
-###Web Api
-###Postgresql
-###Swagger
-###Redis
-####Proje katmanlı mimari üzerine inşa edilmiştir.Teknolojilerin hepsine değinilmeye çalışılmış olunup ,verilen detail alanıyla ilgili olarak da bir çoğu karşılanmaya çalışılmıştır.
+## KullanÄ±lan teknolojiler
+### Net 6
+### Ef Core
+### Web Api
+### Postgresql
+### Swagger
+### Redis
+#### Proje katmanlÄ± mimari Ã¼zerine inÅŸa edilmiÅŸtir.Teknolojilerin hepsine deÄŸinilmeye Ã§alÄ±ÅŸÄ±lmÄ±ÅŸ olunup ,verilen detail alanÄ±yla ilgili olarak da bir Ã§oÄŸu karÅŸÄ±lanmaya Ã§alÄ±ÅŸÄ±lmÄ±ÅŸtÄ±r.
 
